@@ -41,8 +41,8 @@ sudo apt install -y nvidia-cuda-toolkit
 ## **4️⃣ Deploy Ray Cluster**
 - Clone the repository to access `run_cluster.sh`:
 ```bash
-git clone <your_repo_link>
-cd <repo_directory>
+git clone https://github.com/jessie-sr/vllm-multi-node.git
+cd vllm-multi-node
 ```
 - Use **Tailscale IPs** to launch Ray on both nodes.
 
