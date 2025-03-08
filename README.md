@@ -3,7 +3,7 @@
 This guide walks you through setting up a **distributed vLLM inference system** using a **Ray cluster** on **Vast.ai** across **multiple GPU-enabled nodes**.
 
 ## **1️⃣ Launch Instances on [Vast.ai](https://cloud.vast.ai/create/)**
-- Deploy **2 VM instances** (**1 head, 1 worker**) with **at least 16GB GPU memory**.
+- Deploy **2 VM instances** (**1 head, 1 worker**) with **at least 12GB GPU memory**.
 - Choose the [**Ubuntu 22.04 CLI (VM)**](https://cloud.vast.ai/template/readme/9612e7b1ae3d729a9b1f5984b9f1972c) template.
 
 ---
@@ -105,10 +105,20 @@ vllm serve Qwen/Qwen2.5-7B \
 
 If you see **routing logs and** `"INFO: Application startup complete."`, the cluster is running successfully! 🚀
 
+### **📌 Check the Status of the Ray Cluster**
+
+To ensure that all nodes are properly connected, run:
+
+```bash
+ray status
+```
+
+This should display details about the active nodes, resources, and any pending issues.
+
 ---
 
 ## **7️⃣ Verify Setup**
-Run the following **from any node** to check if the model is loaded:
+Run the following **from any node** (inside the container) to check if the model is loaded:
 ```bash
 curl -X GET "http://localhost:8000/v1/models"
 ```
